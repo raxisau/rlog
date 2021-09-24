@@ -52,8 +52,7 @@ func LogSetup(debugFile, logLevel string) {
 	} else if debugFile == "stderr" {
 		logOutFile = os.Stderr
 	} else {
-		fileName := fmt.Sprintf("%s-%s.log", debugFile, time.Now().UTC().Format("2006-01-02T15-04-05"))
-		logOutFile, err = os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0666)
+		logOutFile, err = os.OpenFile(debugFile, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0666)
 		if err != nil {
 			logOutFile = os.Stdout
 		}
